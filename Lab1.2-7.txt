@@ -1,0 +1,44 @@
+Para realizar a análise do desempenho do TCP, foi utilizado o "iperf" e o comando foi executado três vezes para realizar uma estimativa média de seu desempenho.
+
+Teste 1: h1 = 91.7 Mbits/sec, h2 = 109 MBits/sec
+Teste 2: h1 = 91.4 Mbits/sec, h2 = 109 MBits/sec
+Teste 3: h1 = 91.0 Mbits/sec, h2 = 108 MBits/sec
+Media: h1 = 91.36Mbits/sec, h2 = 108.66 Mbits/sec
+
+Para o calculo do desempenho do UDP, foi utilizado o "iperfudp" e o comando foi executado três vezes para realizar uma estimativa média de seu desempenho. Para todos os testes rodados o resultado foi o mesmo: h1 = 10.0 MBits/sec, h2 = 10.0MBits/sec
+
+O testes para o ping foram realizados utilizando "h1 ping -c 10 h2", e foi possível análisar que não houve perda de pacotes. Segue Abaixo os Resultados:
+
+PING 10.0.0.2 (10.0.0.2) 56(84) bytes of data.
+64 bytes from 10.0.0.2: icmp_seq=1 ttl=64 time=2.55 ms
+64 bytes from 10.0.0.2: icmp_seq=2 ttl=64 time=1.59 ms
+64 bytes from 10.0.0.2: icmp_seq=3 ttl=64 time=0.355 ms
+64 bytes from 10.0.0.2: icmp_seq=4 ttl=64 time=0.405 ms
+64 bytes from 10.0.0.2: icmp_seq=5 ttl=64 time=0.427 ms
+64 bytes from 10.0.0.2: icmp_seq=6 ttl=64 time=0.381 ms
+64 bytes from 10.0.0.2: icmp_seq=7 ttl=64 time=1.40 ms
+64 bytes from 10.0.0.2: icmp_seq=8 ttl=64 time=0.508 ms
+64 bytes from 10.0.0.2: icmp_seq=9 ttl=64 time=0.397 ms
+64 bytes from 10.0.0.2: icmp_seq=10 ttl=64 time=0.427 ms
+
+--- 10.0.0.2 ping statistics ---
+10 packets transmitted, 10 received, 0% packet loss, time 9002ms
+rtt min/avg/max/mdev = 0.355/0.845/2.558/0.715 ms
+
+O Mesmo teste também foi realizado invertendo os hosts do comando anterior, sendo o comando utilizado para os teste abaixo "h2 ping -c 10 h1":
+
+4 bytes from 10.0.0.1: icmp_seq=1 ttl=64 time=2.46 ms
+64 bytes from 10.0.0.1: icmp_seq=2 ttl=64 time=1.31 ms
+64 bytes from 10.0.0.1: icmp_seq=3 ttl=64 time=1.37 ms
+64 bytes from 10.0.0.1: icmp_seq=4 ttl=64 time=0.525 ms
+64 bytes from 10.0.0.1: icmp_seq=5 ttl=64 time=0.482 ms
+64 bytes from 10.0.0.1: icmp_seq=6 ttl=64 time=0.375 ms
+64 bytes from 10.0.0.1: icmp_seq=7 ttl=64 time=1.66 ms
+64 bytes from 10.0.0.1: icmp_seq=8 ttl=64 time=0.377 ms
+64 bytes from 10.0.0.1: icmp_seq=9 ttl=64 time=0.246 ms
+64 bytes from 10.0.0.1: icmp_seq=10 ttl=64 time=0.403 ms
+
+--- 10.0.0.1 ping statistics ---
+10 packets transmitted, 10 received, 0% packet loss, time 9001ms
+rtt min/avg/max/mdev = 0.246/0.922/2.466/0.705 ms
+
